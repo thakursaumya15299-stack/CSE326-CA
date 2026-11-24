@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportsHub - Sports Facility Booking</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="logged-out">
+
+    <!-- NAVIGATION BAR -->
+    <header id="mainHeader">
+        <div class="logo">
+            <i class="fa-solid fa-volleyball"></i>
+            SportsHub
+        </div>
+
+        <nav>
+            <a href="#" onclick="showPage('dashboard')">Dashboard</a>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('facilities')">Facilities</a>
+            <a href="#" onclick="showPage('book')">Book Facility</a>
+            <a href="#" onclick="showPage('bookings')">My Bookings</a>
+            <a href="#" onclick="showPage('profile')">Profile</a>
+            <a href="#" onclick="showPage('about')">About</a>
+            <a href="#" class="logout-link" onclick="logout()">Logout</a>
+        </nav>
+    </header>
+
+
+    <!-- WEBSITE NOTIFICATION -->
+    <div id="notification" class="notification">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="notificationMessage"></span>
+    </div>
+
+
+    <!-- LOGIN PAGE -->
+    <section id="login" class="page auth-page active-page">
+
+        <div class="auth-image">
+            <div class="image-content">
+                <h1>Welcome to SportsHub</h1>
+                <p>Your sports journey starts here.</p>
+            </div>
+        </div>
+
+        <div class="auth-form">
+            <h2>Login</h2>
+            <p>Login to access your SportsHub account.</p>
+
+            <form id="loginForm">
+
+                <label>Email Address</label>
+                <input type="email" id="loginEmail"
+                placeholder="Enter your email" required>
+
+                <label>Password</label>
+                <input type="password" id="loginPassword"
+                placeholder="Enter your password" required>
+
+                <button type="submit">Login</button>
+
+            </form>
+
+            <p class="auth-switch">
+                Don't have an account?
+                <a href="#" onclick="showAuthPage('register')">Register</a>
+            </p>
+        </div>
+    </section>
+
+
+    <!-- REGISTER PAGE -->
+    <section id="register" class="page auth-page">
+
+        <div class="auth-image">
+            <div class="image-content">
+                <h1>Join SportsHub</h1>
+                <p>Create your account and explore sports facilities.</p>
+            </div>
+        </div>
+
+        <div class="auth-form">
+            <h2>Create Account</h2>
+            <p>Register to get started.</p>
+
+            <form id="registerForm">
+
+                <label>Full Name</label>
+                <input type="text" id="registerName"
+                placeholder="Enter your name" required>
+
+                <label>Email Address</label>
+                <input type="email" id="registerEmail"
+                placeholder="Enter your email" required>
+
+                <label>Password</label>
+                <input type="password" id="registerPassword"
+                placeholder="Create a password" required>
+
+                <button type="submit">Register</button>
+
+            </form>
+
+            <p class="auth-switch">
+                Already have an account?
+                <a href="#" onclick="showAuthPage('login')">Login</a>
+            </p>
+        </div>
+    </section>
+
+
+    <!-- DASHBOARD PAGE -->
+    <section id="dashboard" class="page">
+
+        <div class="page-heading">
+            <h1 id="welcomeMessage">Welcome to SportsHub</h1>
+            <p>Manage your sports activities in one place.</p>
+        </div>
+
+        <div class="stats-container">
+
+            <div class="stat-card">
+                <i class="fa-solid fa-calendar-check"></i>
+                <h2 id="dashboardBookings">0</h2>
+                <p>Total Bookings</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-volleyball"></i>
+                <h2>6</h2>
+                <p>Sports Facilities</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-user"></i>
+                <h2>1</h2>
+                <p>Active Account</p>
+            </div>
+
+        </div>
+
+        <h2 class="section-title">Quick Actions</h2>
+
+        <div class="quick-container">
+
+            <div class="quick-card">
+                <i class="fa-solid fa-futbol"></i>
+                <h3>Explore Facilities</h3>
+                <p>Explore available sports facilities.</p>
+                <button onclick="showPage('facilities')">
+                    Explore
+                </button>
+            </div>
+
+            <div class="quick-card">
+                <i class="fa-solid fa-calendar-plus"></i>
+                <h3>Book a Facility</h3>
+                <p>Reserve your favourite sports facility.</p>
+                <button onclick="showPage('book')">
+                    Book Now
+                </button>
+            </div>
+
+            <div class="quick-card">
+                <i class="fa-solid fa-list"></i>
+                <h3>My Bookings</h3>
+                <p>Check your existing reservations.</p>
+                <button onclick="showPage('bookings')">
+                    View Bookings
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- HOME PAGE -->
+    <section id="home" class="page">
+
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>Welcome to SportsHub</h1>
+
+                <p>
+                    Your one-stop destination for booking
+                    sports facilities easily and conveniently.
+                </p>
+
+                <button onclick="showPage('facilities')">
+                    Explore Sports
+                </button>
+            </div>
+        </div>
+
+        <div class="home-info">
+            <h2>Play More. Stay Active. Stay Healthy.</h2>
+
+            <p>
+                SportsHub makes it easy to discover and book
+                different sports facilities. Choose your favourite
+                sport, select your preferred date and time, and
+                enjoy your sports experience.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- FACILITIES PAGE -->
+    <section id="facilities" class="page">
+
+        <div class="page-heading">
+            <h1>Our Sports Facilities</h1>
+            <p>Choose your favourite sport and book your slot.</p>
+        </div>
+
+        <div class="facility-container">
+
+            <div class="facility-card">
+                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=700"
+                alt="Cricket">
+
+                <div class="facility-content">
+                    <h2>Cricket</h2>
+                    <p>Enjoy cricket with your friends.</p>
+
+                    <button onclick="selectSport('Cricket')">
+                        Book Now
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="facility-card">
+                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=700"
+                alt="Football">
+
+                <div class="facility-content">
+                    <h2>Football</h2>
+                    <p>Experience the excitement of football.</p>
+
+                    <button onclick="selectSport('Football')">
+                        Book Now
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="facility-card">
+                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=700"
+                alt="Basketball">
+
+                <div class="facility-content">
+                    <h2>Basketball</h2>
+                    <p>Practice and enjoy basketball.</p>
+
+                    <button onclick="selectSport('Basketball')">
+                        Book Now
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="facility-card">
+                <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=700"
+                alt="Badminton">
+
+                <div class="facility-content">
+                    <h2>Badminton</h2>
+                    <p>Improve your badminton skills.</p>
+
+                    <button onclick="selectSport('Badminton')">
+                        Book Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- HOCKEY -->
+            <div class="facility-card">
+               <img src="https://images.pexels.com/photos/29661226/pexels-photo-29661226.jpeg" alt="Hockey">
+
+                <div class="facility-content">
+                    <h2>Hockey</h2>
+                    <p>Enjoy the excitement of hockey with your team.</p>
+
+                    <button onclick="selectSport('Hockey')">
+                        Book Now
+                    </button>
+            </div>
+        </div>
+
+
+            <div class="facility-card">
+                <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?w=700"
+                alt="Tennis">
+
+                <div class="facility-content">
+                    <h2>Tennis</h2>
+                    <p>Enjoy an exciting tennis match.</p>
+
+                    <button onclick="selectSport('Tennis')">
+                        Book Now
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- BOOK FACILITY PAGE -->
+    <section id="book" class="page">
+
+        <div class="page-heading">
+            <h1>Book a Sports Facility</h1>
+            <p>Fill in the details to reserve your sports slot.</p>
+        </div>
+
+        <div class="booking-container">
+
+            <form id="bookingForm">
+                <label for="bookingName">Full Name</label>
+                <input 
+                type="text" 
+                id="bookingName" 
+                placeholder="Enter your full name" 
+                required 
+                >
+
+                <label>Select Sport</label>
+
+                <select id="sport" required>
+                    <option value="">Choose a sport</option>
+                    <option value="Cricket">Cricket</option>
+                    <option value="Football">Football</option>
+                    <option value="Basketball">Basketball</option>
+                    <option value="Badminton">Badminton</option>
+                    <option value="Tennis">Tennis</option>
+                    <option value="Hockey">Hockey</option>
+                </select>
+
+
+                <label>Select Date</label>
+
+                <input type="date" id="bookingDate" required>
+
+
+                <label>Select Time</label>
+
+                <select id="bookingTime" required>
+                    <option value="">Choose time</option>
+                    <option value="8 AM - 9 AM">8 AM - 9 AM</option>
+                    <option value="9 AM - 10 AM">9 AM - 10 AM</option>
+                    <option value="10 AM - 11 AM">10 AM - 11 AM</option>
+                    <option value="4 PM - 5 PM">4 PM - 5 PM</option>
+                    <option value="5 PM - 6 PM">5 PM - 6 PM</option>
+                    <option value="6 PM - 7 PM">6 PM - 7 PM</option>
+                </select>
+
+
+                <label>Number of Players</label>
+
+                <input type="number" id="players"
+                min="1" max="30" placeholder="Enter number of players"
+                required>
+
+
+                <button type="submit">Confirm Booking</button>
+
+            </form>
+
+        </div>
+    </section>
+
+
+    <!-- MY BOOKINGS PAGE -->
+    <section id="bookings" class="page">
+
+        <div class="page-heading">
+            <h1>My Bookings</h1>
+            <p>View and manage your sports reservations.</p>
+        </div>
+
+        <div id="bookingList" class="booking-list"></div>
+
+    </section>
+
+
+    <!-- PROFILE PAGE -->
+    <section id="profile" class="page">
+
+        <div class="page-heading">
+            <h1>My Profile</h1>
+            <p>View your account information.</p>
+        </div>
+
+        <div class="profile-container">
+
+            <div class="profile-icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <h2 id="profileName">User Name</h2>
+            <p id="profileEmail">user@email.com</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT PAGE -->
+    <section id="about" class="page">
+
+        <div class="page-heading">
+            <h1>About SportsHub</h1>
+            <p>Making sports facility booking simple and convenient.</p>
+        </div>
+
+        <div class="about-container">
+
+            <h2>Who We Are</h2>
+
+            <p>
+                SportsHub is a sports facility booking website
+                designed to make sports reservations easier.
+                It allows users to explore different sports,
+                choose their preferred facility and reserve
+                a suitable time slot.
+            </p>
+
+            <h2>Our Features</h2>
+
+            <ul>
+                <li>Simple user login and registration.</li>
+                <li>Easy navigation between website pages.</li>
+                <li>Multiple sports facilities.</li>
+                <li>Online booking form.</li>
+                <li>View and cancel bookings.</li>
+                <li>User profile information.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer id="mainFooter">
+        <h3>SportsHub</h3>
+
+        <p>
+            Your sports journey starts here.
+        </p>
+
+        <p>
+            © 2026 SportsHub. All Rights Reserved.
+        </p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
